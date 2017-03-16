@@ -40,7 +40,7 @@ void taylor() {
     double input = -1;
 
     while (!valid) {
-        cout << "Enter a number: " << endl;
+        cout << "Enter a number to calculate Taylor expansion: " << endl;
         cin >> input;
 
         if (input <= 10 && input >= -10) {
@@ -59,9 +59,10 @@ void crypto() {
 
 
     int method;
+    cout<< "-------------------------------------:" << endl;
     cout<< "Input (1) to encrypt number:" << endl;
     cout<< "Input (2) to decrypt number:" << endl;
-    cout<< "-------------------------------------:" << endl;
+    cout<< "*" << endl;
     cout<< "Please give a number between [1, 2]:" << endl;
     cin>>method;
 
@@ -153,6 +154,68 @@ void crypto() {
     }
 }
 
+void asteriks() {
+
+    int method;
+    cout<< "-------------------------------------:" << endl;
+    cout<< "Input (1) to bottom left triangle:" << endl;
+    cout<< "Input (2) to top left triangle:" << endl;
+    cout<< "Input (3) to top right triangle:" << endl;
+    cout<< "Input (4) to bottom right triangle:" << endl;
+    cout<< "Input (5) to get ALL OF THEM" << endl;
+    cout<< "*:" << endl;
+    cout<< "Please give a number between [1, 5]:" << endl;
+    cin>>method;
+
+    int input;
+
+    switch(method){
+        case 1:
+            for (int i = 1; i < 11; ++i) {
+                cout << string(i, '*') << endl;
+            }
+            break;
+        case 2:
+            for (int i = 10; i < 11; --i) {
+                cout << string(i, '*') << endl;
+
+                if (i == 0) {
+                    break;
+                }
+            }
+            break;
+
+        case 3:
+            for (int i = 10; i < 11; --i) {
+                cout << string(10-i, ' ') << string(i, '*') << endl;
+
+                if (i == 0) {
+                    break;
+                }
+            }
+            break;
+
+        case 4:
+            for (int i = 1; i < 11; ++i) {
+                cout << string(10-i, ' ') << string(i, '*') << endl;
+            }
+            break;
+
+        case 5:
+            cout << "a" << string(10, ' ') << "b" << string(10, ' ') << "c" << string(10, ' ') << "d" << string(10, ' ') << endl;
+            for (int i = 1; i < 11; ++i) {
+                cout << string(i, '*') << string(11-i, ' ');
+                cout << string(11-i, '*') << string(i-1, ' ');
+                cout << string(i-1, ' ') << string(11-i, '*');
+                cout << string(10-i, ' ') << string(i, '*') << endl;
+            }
+            break;
+        default : //Optional
+            cout << "I don't think we can serve that option";
+    }
+
+}
+
 int main() {
     int selection;
     cout<< "Input (1) to calculate Taylor Series:" << endl;
@@ -169,14 +232,12 @@ int main() {
         case 2:
             crypto();
             break;
-
         case 3:
-            // asteriks();
+            asteriks();
             break;
-        default : //Optional
+        default:
             cout << "I don't think we can serve that option";
     }
-
 
     return 0;
 }
