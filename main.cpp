@@ -171,7 +171,7 @@ int main() {
             break;
 
         case 3:
-            asteriks();
+            // asteriks();
             break;
         default : //Optional
             cout << "I don't think we can serve that option";
